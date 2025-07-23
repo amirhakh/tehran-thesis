@@ -48,7 +48,7 @@
 		linkcolor=darkblue,citecolor=darkred,urlcolor=darkgreen,final]{hyperref}
 	%\usepackage{todonotes}
 	\usepackage[firstpage]{draftwatermark}
-	\SetWatermarkText{\ \ \ پیش‌نویس}
+	\SetWatermarkText{\ \ \ \rl{پیش‌نویس}}
 	\SetWatermarkScale{1.2}
 }
 {
@@ -165,7 +165,7 @@
 \renewcommand{\@todonotes@MissingFigureDown}{جاافتاده}
 \makeatother
 % دستوری برای حذف کلمه «چکیده»
-\renewcommand{\abstractname}{}
+% \renewcommand{\abstractname}{}
 % دستوری برای حذف کلمه «abstract»
 %\renewcommand{\latinabstract}{}
 % دستوری برای تغییر نام کلمه «اثبات» به «برهان»
@@ -231,10 +231,10 @@
 \renewcommand{\algorithmicbody}{\if@RTL\textbf{انجام بده}\else\textbf{do}\fi}
 \renewcommand{\algorithmictrue}{\if@RTL\textbf{درست}\else\textbf{true}\fi}
 \renewcommand{\algorithmicfalse}{\if@RTL\textbf{نادرست}\else\textbf{false}\fi}
-\renewcommand{\algorithmicendif}{\algorithmicend\textbf{ شرط }\algorithmicif}
-\renewcommand{\algorithmicendfor}{\algorithmicend\textbf{ حلقهٔ }\algorithmicfor}
-\renewcommand{\algorithmicendwhile}{\algorithmicend\textbf{ حلقهٔ }\algorithmicwhile}
-\renewcommand{\algorithmicendloop}{\algorithmicend\textbf{ حلقهٔ }\algorithmicloop}
+\renewcommand{\algorithmicendif}{\algorithmicend\if@RTL\textbf{ شرط }\else\ \fi\algorithmicif}
+\renewcommand{\algorithmicendfor}{\algorithmicend\if@RTL\textbf{ حلقهٔ }\else\ \fi\algorithmicfor}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\if@RTL\textbf{ حلقهٔ }\else\ \fi\algorithmicwhile}
+\renewcommand{\algorithmicendloop}{\algorithmicend\if@RTL\textbf{ حلقهٔ }\else\ \fi\algorithmicloop}
 \renewcommand{\algorithmiccomment}[1]{\{{\itshape #1}\}}
 \makeatletter
 
@@ -257,7 +257,7 @@
 \fancyhead[EL]{\footnotesize\rightmark}
 \renewcommand{\headrulewidth}{0.75pt}
 % شکل‌دهی شماره و عنوان فصل در سربرگ
-\renewcommand{\chaptermark}[1]{\markboth{فصل~\thechapter:\ #1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\@chapapp~\thechapter:\ #1}{}}
 \makeatletter
 \renewcommand{\rightmark}[1]{\@title}
 \makeatother

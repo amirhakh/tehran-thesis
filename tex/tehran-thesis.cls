@@ -363,7 +363,7 @@
 
 \begin{center}
 {\Large\bfseries
-	گواهی دفاع از \@projectLabel{} \@degree{}
+	گواهی دفاع از \@projectLabel{}ٔ \@degree{}
 }
 \end{center}
 %\vspace{.5cm}
