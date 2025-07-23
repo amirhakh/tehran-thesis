@@ -13,8 +13,8 @@
 	\renewcommand*{\glsgroupskip}{\vskip 10mm}
 	\renewcommand*{\glsgroupheading}[1]{\subsection*{\glsgetgrouptitle{##1}}}
 	\renewcommand*{\glossentry}[2]{{\raggedright\noindent\glsentryname{##1}\dotfill\space \glsentrytext{##1}
-		
-	}}
+
+			}}
 }
 
 %% % تعریف استایل برای واژه‌نامه انگلیسی به فارسی، در این استایل واژه‌های فارسی در سمت راست و واژه‌های انگلیسی در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
@@ -34,8 +34,8 @@
 	\renewcommand*{\glsgroupheading}[1]{\subsection*{\glsgetgrouptitle{##1}}}
 	%%% در این دستور نحوه نمایش واژه‌ها می‌آید. در این جا واژه فارسی در سمت راست و واژه انگلیسی در سمت چپ قرار داده شده است، و بین آن با نقطه پر می‌شود. 
 	\renewcommand*{\glossentry}[2]{{\raggedleft\noindent\glsentryname{##1}\dotfill\space \rl{\glsentrytext{##1}}
-		
-	}}
+
+			}}
 }
 
 %%% تعیین استایل برای فهرست اختصارات
@@ -48,7 +48,7 @@
 	%%% در این دستور نحوه نمایش اختصارات می‌آید. در این جا حالت کوچک اختصار در سمت چپ و حالت بزرگ در سمت راست قرار داده شده است، و بین آن با نقطه پر می‌شود. 
 	% \renewcommand*{\glossentry}[2]{\noindent\Glsentrylong{##1}\dotfill\space \glsentrytext{##1} 
 	\renewcommand*{\glossentry}[2]{\noindent\glsentrytext{##1}\space\dotfill\space \Glsentrylong{##1}
-		
+
 	}
 	%%% تغییر نام محیط abbreviation به فهرست اختصارات
 	\renewcommand*{\acronymname}{\rl{فهرست اختصارات}}
@@ -82,7 +82,7 @@
 
 \newcommand{\newword}[4]{
 	\newglossaryentry{#1}   {type={english},name={\lr{#2}},plural={#4},text={#3},description={}}
-	\newglossaryentry{f-#1} {type={persian},name={#3},text={\lr{#2}},description={}}
+\newglossaryentry{f-#1} {type={persian},name={#3},text={\lr{#2}},description={}}
 }
 
 %%% بر طبق این دستور، در اولین باری که واژه مورد نظر از واژه‌نامه وارد شود، پاورقی زده می‌شود. 
@@ -99,7 +99,7 @@
 	%\cleardoublepage
 	\phantomsection
 	\baselineskip=.75cm
-	\printglossary[type=acronym,style=AbbrlistStyle]	
+	\printglossary[type=acronym,style=AbbrlistStyle]
 	\clearpage
 }%
 

@@ -24,8 +24,8 @@
   \centering
   \onehalfspacing
   \begin{tabular}{|r|c|l|r|}
-    \hline نام مدل & درجه آزادی & تبدیل مختصات                & توضیح         \\
-    \hline انتقالی & ۲          & $\begin{aligned} x'=x+t_x \\ y'=y+t_y \end{aligned}$ & انتقال دوبعدی \\
+    \hline نام مدل & درجه آزادی & تبدیل مختصات                                                                                       & توضیح         \\
+    \hline انتقالی & ۲          & $\begin{aligned} x'=x+t_x \\ y'=y+t_y \end{aligned}$                                               & انتقال دوبعدی \\
     \hline اقلیدسی & ۳          & $\begin{aligned} x'=x\cos\theta - y\sin\theta+t_x \\ y'=x\sin\theta+y\cos\theta+t_y \end{aligned}$ & انتقالی+دوران \\
     \hline
   \end{tabular}
@@ -40,8 +40,8 @@
   \centering
   \onehalfspacing
   \begin{tabular}{|r}|C{2.5cm}|L{5cm}|R{3cm}|}
-    \hline نام مدل & درجه آزادی & تبدیل مختصات                & توضیح         \\
-    \hline انتقالی & ۲          & $\begin{aligned} x'=x+t_x \\ y'=y+t_y \end{aligned}$ & انتقال دوبعدی \\
+    \hline نام مدل & درجه آزادی & تبدیل مختصات                                                                                       & توضیح         \\
+    \hline انتقالی & ۲          & $\begin{aligned} x'=x+t_x \\ y'=y+t_y \end{aligned}$                                               & انتقال دوبعدی \\
     \hline اقلیدسی & ۳          & $\begin{aligned} x'=x\cos\theta - y\sin\theta+t_x \\ y'=x\sin\theta+y\cos\theta+t_y \end{aligned}$ & انتقالی+دوران \\
     \hline
   \end{tabular}
@@ -65,9 +65,9 @@
   \centering
   \onehalfspacing
   \begin{tabularx}{\textwidth}{|r|c|l|X|}
-    \hline نام مدل & درجه آزادی & تبدیل مختصات                & توضیح              \\
+    \hline نام مدل & درجه آزادی & تبدیل مختصات                                                                                            & توضیح              \\
     \hline مشابهت  & ۴          & $\begin{aligned} x'=sx\cos\theta - sy\sin\theta+t_x \\ y'=sx\sin\theta+sy\cos\theta+t_y  \end{aligned}$ & اقلیدسی+تغییرمقیاس \\
-    \hline آفین    & ۶          & $\begin{aligned} x'=a_{11}x+a_{12}y+t_x \\ y'=a_{21}x+a_{22}y+t_y \end{aligned}$ & مشابهت+اریب‌شدگی    \\
+    \hline آفین    & ۶          & $\begin{aligned} x'=a_{11}x+a_{12}y+t_x \\ y'=a_{21}x+a_{22}y+t_y \end{aligned}$                        & مشابهت+اریب‌شدگی    \\
     \hline
   \end{tabularx}
 \end{table}
@@ -144,20 +144,20 @@ $\mathbf{x}'_i = H\mathbf{x}_i$
     \REQUIRE  گراف شبکه برای شبیه سازی،
     \ENSURE جدول تغییرات گراف از لحظهٔ ۰ تا t.
     \FOR {تمام لحظات در بازهٔ ۰ تا $t_{max}$}
-      \FOR {تمام پیوند‌ها}
-        \STATE محاسبهٔ ضریب و نرخ انتقال پیوند
-        \STATE محاسبهٔ کیفیت و نرخ یادگیری
-      \ENDFOR
-      \FOR {تمام گره‌ها}
-        \STATE محاسبهٔ نرخ انتقال گره
-        \STATE محاسبهٔ وضعیت جدید
-      \ENDFOR
-      \IF {تغییرات از مقدار $\delta$ کمتر است}
-        \STATE شکستن حلقه
-        \COMMENT{این شرط برای پایان قبل از رسیدن به محدودیت زمانی است، اگر تغییرات کمتر از $\delta$ باشد}
-      \ELSIF {زمان اجرای برنامه بیش از حد طول کشیده \AND $t>100$}
-        \STATE شکستن حلقه
-      \ENDIF
+    \FOR {تمام پیوند‌ها}
+    \STATE محاسبهٔ ضریب و نرخ انتقال پیوند
+    \STATE محاسبهٔ کیفیت و نرخ یادگیری
+    \ENDFOR
+    \FOR {تمام گره‌ها}
+    \STATE محاسبهٔ نرخ انتقال گره
+    \STATE محاسبهٔ وضعیت جدید
+    \ENDFOR
+    \IF {تغییرات از مقدار $\delta$ کمتر است}
+    \STATE شکستن حلقه
+    \COMMENT{این شرط برای پایان قبل از رسیدن به محدودیت زمانی است، اگر تغییرات کمتر از $\delta$ باشد}
+    \ELSIF {زمان اجرای برنامه بیش از حد طول کشیده \AND $t>100$}
+    \STATE شکستن حلقه
+    \ENDIF
     \ENDFOR
     \PRINT {زمان اجرای برنامه}
     \RETURN {ماتریس تغییرات زمانی}
@@ -175,10 +175,10 @@ $\mathbf{x}'_i = H\mathbf{x}_i$
       \REQUIRE $n\geq4$ putative correspondences, number of estimations, $N$, distance threshold $T_{dist}$.\\
       \ENSURE Set of inliers and Homography matrix $H$.
       \FOR{$k = 1$ to $N$}
-        \STATE Randomly choose 4 correspondence,
-        \STATE Check whether these points are colinear, if so, redo the above step
-        \STATE Compute the homography $H_{curr}$ by DLT algorithm from the 4 points pairs,
-        \STATE $\ldots$ % الگوریتم کامل نیست
+      \STATE Randomly choose 4 correspondence,
+      \STATE Check whether these points are colinear, if so, redo the above step
+      \STATE Compute the homography $H_{curr}$ by DLT algorithm from the 4 points pairs,
+      \STATE $\ldots$ % الگوریتم کامل نیست
       \ENDFOR
       \STATE Refinement: re-estimate H from all the inliers using the DLT algorithm.
     \end{algorithmic}
@@ -262,7 +262,7 @@ $\mathbf{x}'_i = H\mathbf{x}_i$
 بنابراین دستورات درج تصویر، جدول و الگوریتم به صورت زیر باید باشند:
 
 \begin{latin}
-\begin{verbatim}
+  \begin{verbatim}
 	\begin{figure/table/algorithm}[ht]
 		...
 	\end{figure/table/algorithm}
