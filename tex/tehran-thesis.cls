@@ -97,7 +97,8 @@
 				{\projectLabel{پروژه}}
 			\else
 				{\projectLabel{رساله}}
-			\fi\fi
+			\fi
+		\fi
 	}\fi
 
 \ifx\@degree\undefined%
@@ -109,7 +110,8 @@
 				\degree{کارشناسی}
 			\else
 				\degree{دکتری}
-			\fi\fi
+			\fi
+		\fi
 	}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%% جلد زرکوب به فارسی (بدون اساتید مشاور)
@@ -189,7 +191,8 @@
 					اساتید راهنما
 					\par
 					{\Large\bfseries \@firstsupervisor{} و \@secondsupervisor}
-				\fi\fi}
+				\fi
+			\fi}
 
 
 			\par
@@ -287,7 +290,8 @@
 					اساتید راهنما
 					\par
 					{\Large\bfseries \@firstsupervisor{} و \@secondsupervisor}
-				\fi\fi}
+				\fi
+			\fi}
 			\par\large
 			{\ifx\@firstadvisor\undefined%
 				\ifx\@secondadvisor\undefined%
@@ -303,7 +307,8 @@
 					استادان مشاور
 					\par
 					{\Large\bfseries\@firstadvisor{} و \@secondadvisor}
-				\fi\fi}
+				\fi
+			\fi}
 
 			\par
 			\vskip 6mm
@@ -697,7 +702,8 @@
 				Supervisors:
 				\par
 				{\Large\bfseries \@firstlatinsupervisor{} and \@secondlatinsupervisor}
-			\fi\fi}
+			\fi
+		\fi}
 		\par
 		\large
 		{\ifx\@firstlatinadvisor\undefined%
@@ -714,7 +720,8 @@
 				Advisors:
 				\par
 				{\Large\bfseries\@firstlatinadvisor{} and \@secondlatinadvisor}
-			\fi\fi}
+			\fi
+		\fi}
 		\vskip 5mm
 
 		\par
@@ -735,11 +742,19 @@
 \def\writtenfor{برای دریافت درجهٔ }
 \def\by{پژوهشگر}
 \def\latinby{By:}
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+\def\cleardoublepage{
+	\clearpage
+	\if@twoside
+		\ifodd
+			\c@page
+		\else
 			\hbox{}
 			\thispagestyle{empty}
 			\newpage
-			\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+			\if@twocolumn\hbox{}\newpage
+			\fi
+		\fi
+	\fi}
 
 \AtBeginDocument{
 	\makeatletter
