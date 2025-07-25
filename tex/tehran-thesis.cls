@@ -10,7 +10,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tehran-thesis}
-[05/09/2017 v0.1 Persian thesis document class in XeLaTeX for University of Tehran projects/theses/dissertations]
+[05/08/2024 v0.2 Persian thesis document class in XeLaTeX for University of Tehran projects/theses/dissertations]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{book}
@@ -109,7 +109,7 @@
 			\if@bscthesis
 				\degree{کارشناسی}
 			\else
-				\degree{دکتری}
+				\degree{دکتری تخصصی \lr{PhD}}
 			\fi
 		\fi
 	}
@@ -122,25 +122,25 @@
 			\begin{latin}
 				\hskip-1cm
 				\makebox[\textwidth+2cm][c]{
-					\begin{minipage}{5cm}
+					\begin{minipage}{4cm}
 						\centering
-						\includegraphics[height=4cm]{eng-logo}
+						\includegraphics[height=3cm]{eng-logo}
 					\end{minipage}
-					\begin{minipage}{\textwidth - 8cm}
+					\begin{minipage}{\textwidth - 7cm}
 						\begin{center}
 							\begin{persian}
 								\begin{onehalfspacing}
-									{\normalsize \bf \@university \\}
-									{\normalsize \bf \@college \\}
+									{\large\bfseries\@university \\}
+									{\large\bfseries\@college \\}
 									{\large\bfseries\@faculty \\}
 									{\large\bfseries\@department}
 								\end{onehalfspacing}
 							\end{persian}
 						\end{center}
 					\end{minipage}
-					\begin{minipage}{5cm}
+					\begin{minipage}{4cm}
 						\centering
-						\includegraphics[height=4cm]{logo}
+						\includegraphics[height=3cm]{logo}
 					\end{minipage}
 				}
 			\end{latin}
@@ -151,8 +151,6 @@
 			% بعد از آرم‌ها
 			\centering
 			\vskip 1.5cm
-				{\huge\titlefont\bfseries \@title}\par
-			\vskip 5mm
 			\if@bscthesis
 			{\large\bfseries{پروژهٔ کارشناسی \@subject}
 				\ifx\@field\undefined%
@@ -162,19 +160,20 @@
 				\fi
 			}
 			\else
-			{\large\bfseries \@projectLabel\ \writtenfor
-				\@degree{}
-			}
-			{\large\bfseries{در رشتهٔ \@subject}}
-			\vskip .2cm
-			\centerline{\large \bfseries%
-				گرایش \@field}
+				{\large\bfseries \@projectLabel\ \writtenfor \@degree{}}
+				\vskip .2cm
+				\centerline{\large\bfseries{رشتهٔ \@subject{} گرایش \@field}}
 			\fi
+			\vskip 5mm
+				{\huge\titlefont\bfseries \@title}
+				\par
 			\vskip 1cm
+			{\large نگارنده}
 			\par
 			{\Large\bfseries{\@name\ \ \@surname}}
+
 			\par
-			\vskip 1cm
+			\vskip .8cm
 			\large
 			{
 			\ifx\@firstsupervisor\undefined%
@@ -184,13 +183,32 @@
 			\else
 				\ifx\@secondsupervisor\undefined%
 					استاد راهنما
-					{\Large\bfseries\par
-					\@firstsupervisor}
+					{\large\bfseries\par \@firstsupervisor}
 				\else
 					\large
 					اساتید راهنما
 					\par
-					{\Large\bfseries \@firstsupervisor{} و \@secondsupervisor}
+					{\large\bfseries \@firstsupervisor{} \vskip .2cm \@secondsupervisor}
+				\fi
+			\fi}
+			
+			\par
+			\vskip 6mm
+			\large
+			{\ifx\@firstadvisor\undefined%
+				\ifx\@secondadvisor\undefined%
+				\else\fi
+			\else
+				\ifx\@secondadvisor\undefined%
+					استاد مشاور
+					{\large\bfseries\par
+					\@firstadvisor}
+				\else
+
+					\large
+					اساتید مشاور
+					\par
+					{\large\bfseries\@firstadvisor{} \vskip .2cm \@secondadvisor}
 				\fi
 			\fi}
 
@@ -221,25 +239,25 @@
 			\begin{latin}
 				\hskip-1cm
 				\makebox[\textwidth+2cm][c]{
-					\begin{minipage}{5cm}
+					\begin{minipage}{4cm}
 						\centering
-						\includegraphics[height=4cm]{eng-logo}
+						\includegraphics[height=3cm]{eng-logo}
 					\end{minipage}
-					\begin{minipage}{\textwidth - 8cm}
+					\begin{minipage}{\textwidth - 7cm}
 						\begin{center}
 							\begin{persian}
 								\begin{onehalfspacing}
-									{\normalsize \bf \@university \\}
-									{\normalsize \bf \@college \\}
+									{\large\bfseries\@university \\}
+									{\large\bfseries\@college \\}
 									{\large\bfseries\@faculty \\}
 									{\large\bfseries\@department}
 								\end{onehalfspacing}
 							\end{persian}
 						\end{center}
 					\end{minipage}
-					\begin{minipage}{5cm}
+					\begin{minipage}{4cm}
 						\centering
-						\includegraphics[height=4cm]{logo}
+						\includegraphics[height=3cm]{logo}
 					\end{minipage}
 				}
 			\end{latin}
@@ -250,8 +268,6 @@
 			% بعد از آرم‌ها
 			\centering
 			\vskip 1.5cm
-				{\huge\titlefont\bfseries \@title}\par
-			\vskip 5mm
 			\if@bscthesis
 			{\large\bfseries{پروژهٔ کارشناسی \@subject}
 				\ifx\@field\undefined%
@@ -261,19 +277,22 @@
 				\fi
 			}
 			\else
-			{\large\bfseries \@projectLabel{} \writtenfor
-				\@degree{}
-			}
-			{\large\bfseries{در رشتهٔ \@subject}}
-			\vskip .2cm
-			\centerline{\large \bfseries%
-				گرایش \@field}
+				{\large\bfseries \@projectLabel{} \writtenfor \@degree{}}
+				\vskip .2cm
+				\centerline{\large\bfseries{رشتهٔ \@subject{} گرایش \@field}}
 			\fi
+			\vskip 5mm
+			{\huge\titlefont\bfseries \@title}
+
+			\par
 			\vskip 1cm
+			{\large نگارنده}
+			
 			\par
 			{\Large\bfseries{\@name\ \ \@surname}}
+
 			\par
-			\vskip 15mm
+			\vskip 10mm
 			\large
 			{
 			\ifx\@firstsupervisor\undefined%
@@ -283,30 +302,33 @@
 			\else
 				\ifx\@secondsupervisor\undefined%
 					استاد راهنما
-					{\Large\bfseries\par
+					{\large\bfseries\par
 					\@firstsupervisor}
 				\else
 					\large
 					اساتید راهنما
 					\par
-					{\Large\bfseries \@firstsupervisor{} و \@secondsupervisor}
+					{\large\bfseries \@firstsupervisor{} \par \@secondsupervisor}
 				\fi
 			\fi}
-			\par\large
+
+			\par
+			\vskip 6mm
+			\large
 			{\ifx\@firstadvisor\undefined%
 				\ifx\@secondadvisor\undefined%
 				\else\fi
 			\else
 				\ifx\@secondadvisor\undefined%
 					استاد مشاور
-					{\Large\bfseries\par
+					{\large\bfseries\par
 					\@firstadvisor}
 				\else
 
 					\large
-					استادان مشاور
+					اساتید مشاور
 					\par
-					{\Large\bfseries\@firstadvisor{} و \@secondadvisor}
+					{\large\bfseries\@firstadvisor{} \par \@secondadvisor}
 				\fi
 			\fi}
 
@@ -335,7 +357,8 @@
 		\begin{center}
 			\begin{tabular}{lr}
 				نام و نام خانوادگی دانشجو: & \@name{} \@surname \\
-				تاریخ و امضای دانشجو:      &                    \\
+				امضاء:                      &                    \\
+				تاریخ:                      &                    \\
 			\end{tabular}
 		\end{center}
 	}
@@ -350,11 +373,11 @@
 			\raggedleft
 			\includegraphics[height=3cm]{logo}
 		\end{minipage}
-		\begin{minipage}{\textwidth - 8cm}
+		\begin{minipage}{\textwidth - 7cm}
 			\begin{center}
 				\begin{onehalfspacing}
-					{\normalsize \bf \@university \\}
-					{\normalsize \bf \@college \\}
+					{\large\bfseries\@university \\}
+					{\large\bfseries\@college \\}
 					{\large\bfseries\@faculty \\}
 					%{\large\bfseries\@department}
 				\end{onehalfspacing}
@@ -455,7 +478,7 @@
 			\hspace{0.08\textwidth}
 			\begin{minipage}{0.45\textwidth}
 				\begin{center}
-					نام و نام خانوادگی معاون آموزشی و تحصیلات تکمیلی پردیس دانشکده‌های فنی:\\
+					نام و نام خانوادگی معاون آموزشی و تحصیلات تکمیلی پردیس دانشکدگان فنی:\\
 					تاریخ و امضا:
 				\end{center}
 			\end{minipage}
@@ -467,18 +490,27 @@
 		\cleardoublepage
 		\thispagestyle{empty}
 		\begin{center}
+			\begin{minipage}{5cm}
+				\centering
+				\includegraphics[height=2cm]{logo}
+			\end{minipage}
+
+			\vspace{.5cm}
+			\centerline{\bfseries باسمه تعالی}
+			\vspace{.5cm}
 			{\Large \titlefont\bfseries
 				تعهدنامهٔ اصالت اثر\\
 			}
 			\vspace{.5cm}
-			باسمه تعالی
-			\vspace{.5cm}
 		\end{center}
 		\doublespacing
 
+
 		اینجانب
-		\@name \ \@surname \
-		تأیید می‌کنم که مطالب مندرج در این \@projectLabel{} حاصل کار پژوهشی اینجانب است و به دستاوردهای پژوهشی دیگران که در این نوشته از آن‌ها استفاده شده است مطابق مقررات ارجاع گردیده است. این \@projectLabel{} قبلاً برای احراز هیچ مدرک هم‌سطح یا بالاتری ارائه نشده است.
+		\@name \@surname 
+		گواهی و تعهد میدهم كه مطالب مندرج در این \textbf{رساله/ پایان‌نامه}، حاصل كار پژوهشی اینجانب است و به دستاوردهای پژوهشی دیگران كه در این پژوهش از آنها استفاده شده، مطابق مقررات و اصول مرتبط با درج منابع و مآخذ، ارجاع داده ام. این \textbf{رساله/پایان‌نامه} قبلاً برای دریافت هیچ مدرك تحصیلی دیگری ارائه نشده است. ضمن پایبندی به رعایت مقررات و اصول اخلاق در پژوهش، میپذیرم كه در هر زمانی، خلاف این گواهی اثبات شود، دانشگاه تهران حق دارد مدرك تحصیلی صادرشده را از درجهٔ اعتبار ساقط نماید.
+
+		كلیه حقوق مادی و معنوی این اثر متعلق به دانشگاه تهران است.
 
 		\getsignature
 	}
@@ -630,23 +662,23 @@
 		\begin{latin}
 			\hskip-1cm
 			\makebox[\textwidth+2cm][c]{
-				\begin{minipage}{5cm}
+				\begin{minipage}{4cm}
 					\centering
-					\includegraphics[height=4cm]{eng-logo-en}
+					\includegraphics[height=3cm]{eng-logo-en}
 				\end{minipage}
-				\begin{minipage}{\linewidth - 8cm}
+				\begin{minipage}{\linewidth - 7cm}
 					\begin{center}
 						\begin{onehalfspacing}
-							{\normalsize \bf \@latinuniversity \\}
-							{\normalsize \bf \@latincollege \\}
-							{\large\bfseries\@latinfaculty \\}
-							{\large\bfseries\@latindepartment \\}
+							{\large\@latinuniversity \\}
+							{\large\@latincollege \\}
+							{\large\@latinfaculty \\}
+							{\large\@latindepartment \\}
 						\end{onehalfspacing}
 					\end{center}
 				\end{minipage}
-				\begin{minipage}{5cm}
+				\begin{minipage}{4cm}
 					\centering
-					\includegraphics[height=4cm]{logo-en}
+					\includegraphics[height=3cm]{logo-en}
 				\end{minipage}
 			}
 		\end{latin}
@@ -657,32 +689,36 @@
 		%% After logos
 		\centering
 		\vskip 1.5cm
-			{%\latintitlefont
-				\Huge\latintitlefont\bfseries
-				\@latintitle}
-		%\baselineskip=.750cm \par
-		\vskip 15mm
 			{
 				\large
 				\if@bscthesis
 					Bachelor of Science Thesis
 					in  \@latinsubject
 				\else
-					A Thesis submitted to the Graduate Studies Office
-					\\In partial fulfillment of the requirements for
-					\\The degree of
+					A
 					\if@mscthesis
-						Master of Science
+						Dissertation
+					\else
+						Thesis
+					\fi
+					Submitted for the Degree of
+					\if@mscthesis
+						Master of Science % /Art/Engineering 
 					\else
 						Doctor of Philosophy
 					\fi
-					\\in  \@latinsubject{} - \@latinfield{}
+					in \\ \@latinsubject{} - \@latinfield{}
 					%\baselineskip=.750cm
 					%\addtolength{\baselineskip}{-5mm}
 				\fi
 			}
+			\vskip 15mm
+			{%\latintitlefont
+				\Huge\latintitlefont\bfseries
+				\@latintitle}
+			%\baselineskip=.750cm \par
 		\vskip 15mm
-			{\bfseries\latinby}\par
+			{\latinby}\par
 		{\large %\supervisorfont
 			\rm \Large\bfseries \@latinname \; \@latinsurname}\par
 
@@ -694,12 +730,12 @@
 			\else\fi
 		\else
 			\ifx\@secondlatinsupervisor\undefined%
-				Supervisor:
+				Supervisor
 				{\Large\bfseries\par
 				\@firstlatinsupervisor}
 			\else
 				\large
-				Supervisors:
+				Supervisors
 				\par
 				{\Large\bfseries \@firstlatinsupervisor{} and \@secondlatinsupervisor}
 			\fi
@@ -710,13 +746,12 @@
 			\ifx\@secondlatinadvisor\undefined%
 			\else\fi
 		\else
+			\vskip 1cm
 			\ifx\@secondlatinadvisor\undefined%
 				Advisor:
 				{\Large\bfseries\par
 				\@firstlatinadvisor}
 			\else
-
-				\large
 				Advisors:
 				\par
 				{\Large\bfseries\@firstlatinadvisor{} and \@secondlatinadvisor}
@@ -741,7 +776,7 @@
 \def\onvan{عنوان}
 \def\writtenfor{برای دریافت درجهٔ }
 \def\by{پژوهشگر}
-\def\latinby{By:}
+\def\latinby{By}
 \def\cleardoublepage{
 	\clearpage
 	\if@twoside
@@ -774,6 +809,7 @@
 %%
 %% Base author: M.Amintoosi
 %%
+%% Copyright © 2025-     by Amir Haji Ali Khamseh (tehran-thesis)
 %% Copyright © 2019-     by Hadi Safari (tehran-thesis)
 %% Copyright © 2017-     by Sina Momken (tehran-thesis)
 %% Copyright © 2012-2012 by Mahmood Amintoosi (IUST-Thesis)
@@ -782,7 +818,7 @@
 %%
 %% Distributable under GNU GENERAL PUBLIC LICENSE Version 3.
 %%
-%% This work is "maintained" by Sina Momken & Hadi Safari.
+%% This work is "maintained" by Sina Momken & Hadi Safari & Amir Haji Ali Khamseh.
 %%
 %% Special thanks to Mahmood Amintoosi, Vahid Damanafshan and Vafa Khalighi for their invaluable work.
 %%
